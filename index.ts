@@ -45,9 +45,14 @@ function listenRadio(): Observable<number> {
   return interval(250);
 }
 
-listenRadio().subscribe((channelNo) => {
-    console.log(`subscribeTo new FM_Radio channel ${channelNo}`)}, (err) => {
-    console.error(err)});
+listenRadio().subscribe(
+  (channelNo) => {
+    console.log(`subscribeTo new FM_Radio channel ${channelNo}`);
+  },
+  (err) => {
+    console.error(err);
+  }
+);
 
 // ---------- Map and Filter pipes() ----------
 
@@ -120,10 +125,10 @@ const alarmInitiator$ = interval(1000)
 const alamClockObserver$ = alarmInitiator$;
 
 alamClockObserver$.subscribe(
-    (seconds) => console.log(`alarm clock ticking countDown - ${seconds}`),
-    (err) => {
-        console.error(err);
-    }
+  (seconds) => console.log(`alarm clock ticking countDown - ${seconds}`),
+  (err) => {
+    console.error(err);
+  }
 );
 
 const ipPattern = /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/;
@@ -138,7 +143,7 @@ const ips: string[] = [
 
 for (const ip of ips) {
   const matched = ipPattern.test(ip);
-  console.log({ip, status: matched, code: matched ? 'ok' : 'error'});
+  console.log({ ip, status: matched, code: matched ? "ok" : "error" });
 }
 
 // ------------- Behaviour Subject ----------------
@@ -197,7 +202,7 @@ setTimeout(() => {
     <Application: Mostly Reactive-searchBar and continuos flow of streams to avid repetation>
 */
 
-const ob$ = of(1,2,3,4,5);
+const ob$ = of(1, 2, 3, 4, 5);
 const searchBar$ = of("a", "an", "ann", "ann", "ann", "anny");
 searchBar$
   .pipe(distinctUntilChanged(), debounceTime(1000))
@@ -213,7 +218,7 @@ const timer2$ = timer(2000, 4000);
 const timer3$ = timer(420, 1000);
 
 combineLatest([timer1$, timer2$, timer3$]).subscribe((data) => {
-    console.log(data)
+  console.log(data);
 });
 
 // ---------- Concat & ContactMap -------------
@@ -226,4 +231,4 @@ const contactOberservable$ = ttime1$.pipe(
   )
 );
 
-contactOberservable$.subscribe(data => console.log(data));
+contactOberservable$.subscribe((data) => console.log(data));
