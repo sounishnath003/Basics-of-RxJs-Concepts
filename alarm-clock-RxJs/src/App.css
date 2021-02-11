@@ -1,0 +1,23 @@
+.App {
+  margin: auto;
+  margin-top: 5em;
+  text-align: center;
+}
+
+button {
+  margin-right: 1.3em;
+  padding: 0.81em 1.4em;
+  font-weight: 600;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.green {
+  background-color: aqua;
+}
+
+.red {
+  background-color: orange;
+}
